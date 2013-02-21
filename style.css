@@ -1,0 +1,14 @@
+body {
+  background: black;
+}
+
+div {
+  margin: auto;
+  width: 420px;
+  height: 280px;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
