@@ -1,1 +1,1 @@
-web: python -m SimpleHTTPServer $PORT
+web: rackup -p $PORT -s thin

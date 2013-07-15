@@ -1,15 +1,15 @@
+/*jslint indent: 2 */
+/*global $, window */
+
 (function () {
+
+  'use strict';
 
   var $sam, $top, parms;
 
   function randomOffset() {
     var range = 15;
     return Math.floor(Math.random() * range) - Math.ceil(range / 2);
-  }
-
-  function wiggle() {
-    setDimensions();
-    setPosition();
   }
 
   function setDimensions() {
@@ -37,25 +37,33 @@
     });
   }
 
+  function wiggle() {
+    setDimensions();
+    setPosition();
+  }
+
   function cacheQueries() {
     $sam = $('img');
     $top = $(window.top);
   }
 
   function setImage() {
-    if (parms['img']) {
-      $sam.attr('src', parms['img']);
+    var $newSam;
+    if (parms.img) {
+      $newSam = $('<img src="' + parms.img + '">');
+      $sam.replaceWith($newSam);
+      $sam = $newSam;
     }
   }
 
   function parseParameters() {
     var rawParms;
     parms    = [];
-    rawParms = location.href.split('?')[1];
+    rawParms = window.location.href.split('?')[1];
     if (rawParms === undefined) {
       return;
     }
-    $.each(rawParms.split('&'), function() {
+    $.each(rawParms.split('&'), function () {
       var pair, key, value;
       pair       = this.split('=');
       key        = pair[0];
@@ -68,6 +76,6 @@
     parseParameters();
     cacheQueries();
     setImage();
-    setInterval(wiggle, 50);
+    window.setInterval(wiggle, 50);
   });
 }(this));
