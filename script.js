@@ -1,6 +1,6 @@
 (function () {
 
-  var $sam, $top;
+  var $sam, $top, parms;
 
   function randomOffset() {
     var range = 15;
@@ -42,8 +42,32 @@
     $top = $(window.top);
   }
 
+  function setImage() {
+    if (parms['img']) {
+      $sam.attr('src', parms['img']);
+    }
+  }
+
+  function parseParameters() {
+    var rawParms;
+    parms    = [];
+    rawParms = location.href.split('?')[1];
+    if (rawParms === undefined) {
+      return;
+    }
+    $.each(rawParms.split('&'), function() {
+      var pair, key, value;
+      pair       = this.split('=');
+      key        = pair[0];
+      value      = pair[1];
+      parms[key] = value;
+    });
+  }
+
   $(function () {
+    parseParameters();
     cacheQueries();
+    setImage();
     setInterval(wiggle, 50);
   });
 }(this));
