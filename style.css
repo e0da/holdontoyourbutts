@@ -7,4 +7,48 @@ html, body {
 
 img {
   display: block;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@-webkit-keyframes wiggle {
+    from {-webkit-transform: translate(0px,0px);}
+    10% {-webkit-transform: translate(0px,2px);}
+    20% {-webkit-transform: translate(0px,1px);}
+    30% {-webkit-transform: translate(1px,3px);}
+    30% {-webkit-transform: translate(-3px,3px);}
+    40% {-webkit-transform: translate(-6px,-3px);}
+    50% {-webkit-transform: translate(4px,7px);}
+    60% {-webkit-transform: translate(-2px,12px);}
+    70% {-webkit-transform: translate(23px,3px);}
+    80% {-webkit-transform: translate(-8px,8px);}
+    90% {-webkit-transform: translate(5px,7px);}
+    to {-webkit-transform: translate(2px,14px);}
+}
+
+@-moz-keyframes wiggle {
+    from {-moz-transform: translate(0px,0px);}
+    10% {-moz-transform: translate(0px,2px);}
+    20% {-moz-transform: translate(0px,1px);}
+    30% {-moz-transform: translate(1px,3px);}
+    30% {-moz-transform: translate(-3px,3px);}
+    40% {-moz-transform: translate(-6px,-3px);}
+    50% {-moz-transform: translate(4px,7px);}
+    60% {-moz-transform: translate(-2px,12px);}
+    70% {-moz-transform: translate(23px,3px);}
+    80% {-moz-transform: translate(-8px,8px);}
+    90% {-moz-transform: translate(5px,7px);}
+    to {-moz-transform: translate(2px,14px);}
+}
+
+.sam {
+    -webkit-animation-name: wiggle;
+    -webkit-animation-duration: .1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+    -moz-animation-name: wiggle;
+    -moz-animation-duration: .1s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: step-start;
 }
